@@ -1,0 +1,10 @@
+- name: CPU Utilization Check
+  hosts: linux
+  gather_facts: no
+  tasks:
+    - name: CPU load
+      command: uptime
+      register: cpu_out
+
+    - debug:
+        var: cpu_out.stdout
