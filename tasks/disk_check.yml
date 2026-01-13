@@ -1,0 +1,10 @@
+- name: Disk Usage Check
+  hosts: linux
+  gather_facts: no
+  tasks:
+    - name: Check disk usage
+      command: df -h {{ mount_point }}
+      register: disk_out
+
+    - debug:
+        var: disk_out.stdout
