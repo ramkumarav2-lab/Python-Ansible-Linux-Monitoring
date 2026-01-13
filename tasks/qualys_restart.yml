@@ -1,0 +1,8 @@
+- name: Restart Qualys Service
+  hosts: linux
+  become: yes
+  tasks:
+    - name: Restart qualys service
+      service:
+        name: qualys-cloud-agent
+        state: restarted
