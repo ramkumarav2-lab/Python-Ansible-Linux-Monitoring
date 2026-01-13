@@ -1,0 +1,10 @@
+- name: Memory Utilization Check
+  hosts: linux
+  gather_facts: no
+  tasks:
+    - name: Memory usage
+      command: free -h
+      register: mem_out
+
+    - debug:
+        var: mem_out.stdout
